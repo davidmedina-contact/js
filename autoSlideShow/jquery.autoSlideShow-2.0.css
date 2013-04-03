@@ -1,0 +1,190 @@
+/* v2.0
+ * 3/26/2013
+ * Last update from: Cold, cold Minneapolis, MN
+ * JD Medina - jdmedina@gmail.com
+  =======================================
+		1. Layout
+		2. Images & Backgrounds
+		3. Colors
+  =======================================
+*/
+
+/*===========================================================
+	1. Layout
+=========================================================== */
+
+.autoSlideShow .holder {
+	min-height: 50px;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+
+.autoSlideShow ul.slides {
+	position: relative;
+}
+	.autoSlideShow ul.slides li {
+		display: none;
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+
+.autoSlideShow ul.pickers {
+	bottom: 10px;
+	left: 10px;
+	line-height: 38px;
+	position: absolute;
+	z-index: 30;
+}	
+	.autoSlideShow ul.pickers li {
+		display: block;
+		float: left;
+	}
+		.autoSlideShow ul.pickers li a {
+			display: block;
+			height: 20px;
+			margin-right: 5px;
+			overflow: hidden;
+			text-indent: -5000px;
+			width: 20px;
+		}
+		/* The active class on the <a> element indicates the current slide */
+		.autoSlideShow ul.pickers li a.active {}
+
+.autoSlideShow ul.thumb {
+	display: block;
+	left: auto;
+	list-style-type: none;
+	margin: 0px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: auto;
+	z-index: 10;
+}
+	.autoSlideShow ul.thumb li {
+		display: block;
+		list-style-type: none;
+		margin-bottom: 0px;
+	}
+	/* Thumbnail images to be set by user as background-image */
+	.autoSlideShow ul.thumb li a {
+		display: block;
+		height: 75px;
+		margin-bottom: 2px;
+		overflow: hidden;
+		text-indent: -5555px;
+		width: 120px;
+	}
+	/* The active class on the <a> element indicates the current slide */
+	.autoSlideShow ul.thumb li a.active {}
+	
+.autoSlideShow ul.lookbook {
+	bottom: 0px;
+	height: 32px;
+	left: 0px;
+	line-height: 38px;
+	position: absolute;
+	width: 100%;
+	z-index: 30;
+}
+	.autoSlideShow ul.lookbook li {
+		float: left;
+		height: 32px;
+		text-transform: uppercase;
+	}
+	.autoSlideShow ul.lookbook li.slideCount {
+		padding-left: 10px;
+	}
+	.autoSlideShow ul.lookbook li.playPause a {
+		display: inline-block;
+		height: 20px;
+		line-height: 24px;
+		margin-left: 34px;
+		padding-right: 27px;
+		width: 110px;
+	}
+	.autoSlideShow ul.lookbook li.prevNext {
+		float: right;
+	}
+		.autoSlideShow ul.lookbook li.prevNext a {
+			display: inline-block;
+			height: 20px;
+			line-height: 24px;
+		}
+		.autoSlideShow ul.lookbook li.prevNext a.previous {
+			margin-right: 15px;
+			padding-left: 27px;
+		}
+		.autoSlideShow ul.lookbook li.prevNext a.next {
+			margin-right: 10px;
+			padding-right: 27px;
+		}
+	
+/*===========================================================
+	2. Images & Backgrounds
+=========================================================== */
+
+.autoSlideShow.preLoader {
+	background-image: url("images/icn_loading.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.autoSlideShow ul.pickers li a,
+.autoSlideShow ul.lookbook li.playPause a,
+.autoSlideShow ul.lookbook li.prevNext a {
+	background-image: url("images/spr_controls.png");
+	background-repeat: no-repeat;
+}
+.autoSlideShow ul.pickers li a.active {
+	background-position: 0 -20px;
+}
+
+.autoSlideShow ul.pickers li.playPause a.play {
+	background-position: 0 -40px;
+}
+.autoSlideShow ul.pickers li.playPause a.pause {
+	background-position: 0 -60px;
+}
+
+.autoSlideShow ul.thumb li {
+	background-color: #333;
+}
+
+.autoSlideShow ul.lookbook{
+	background-image: url("images/spr_controls.png");
+	background-repeat: repeat-x;
+	background-position: 0 -120px;
+}
+	.autoSlideShow ul.lookbook li.playPause a.play {
+		background-position: 100% -40px;	
+	}
+	.autoSlideShow ul.lookbook li.playPause a.pause {
+		background-position: 100% -60px;	
+	}
+	
+	.autoSlideShow ul.lookbook li.prevNext a.previous {
+		background-position: 0% -100px;
+	}
+	.autoSlideShow ul.lookbook li.prevNext a.next {
+		background-position: 100% -80px;
+	}
+
+/*===========================================================
+	3. Colors
+=========================================================== */
+
+.autoSlideShow ul.pickers li a {
+	color: #FFF;
+}
+
+.autoSlideShow ul.thumb li a {
+	border: 2px solid #000;
+}
+
+.autoSlideShow ul.lookbook li.playPause a,
+.autoSlideShow ul.lookbook li.prevNext a {
+	color: #FFF;
+}

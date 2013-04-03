@@ -1,0 +1,56 @@
+/* v2.0
+ * 3/26/2013
+ * Last update from: Cold, cold Minneapolis, MN
+ * JD Medina - jdmedina@gmail.com
+  =======================================
+		1. Layout
+		2. Colors
+		3. Transitions (Animations)
+  =======================================
+*/
+
+/*===========================================================
+	1. Layout
+=========================================================== */
+.autoCarousel {
+	position: relative;
+}
+	.autoCarousel .holder {
+		overflow: hidden;
+		position: relative;
+	}
+		.autoCarousel .holder ul {
+			left: 0;
+			position: absolute;
+			width: 9000px;
+		}
+			.autoCarousel .holder ul li {
+				float: left;
+				display: block;
+				text-align: left;
+			}
+				.autoCarousel .holder ul li a.thumb {
+					display: block;
+					margin: 0 auto;
+				}
+
+	.autoCarousel a.button {
+		cursor: pointer;
+		display: block;
+		position: absolute;
+	}
+
+/*===========================================================
+	2. Colors
+=========================================================== */
+.autoCarousel a.button.disabled {
+	filter: alpha(opacity = 40);
+	opacity: 0.4;
+}
+
+/*===========================================================
+	3. Transitions (Animations)
+=========================================================== */
+.autoCarousel .holder ul {
+	-webkit-transition: translate3d(0,0,0);
+}
