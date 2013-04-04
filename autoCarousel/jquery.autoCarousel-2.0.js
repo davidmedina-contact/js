@@ -31,8 +31,17 @@
             return this;
         }
 
+        // PRIVATE properties;
+        var self = this,
+        carUl = $(self).find("ul"),
+        liWidth = $(self).find("ul li").width(),
+        carPosition = 0,
+        placeHolderWidth = carUl.parent().width(),
+        visibleItems = Math.floor(placeHolderWidth / liWidth),
+        nextBtn, prevBtn, curLiWidth, cutOff, clones, adjPos,
+
         // setup options by default
-        var defaults = {
+        defaults = {
             option : 1,         // Scrolling multiplier.
             scrollSpeed : 0.5,  // Scrolling speed (in seconds).
             infinite : false,   // Make the scrolling an infinite cycle (in boolean: true or false).
@@ -41,15 +50,6 @@
 
         //Extend options
         options = $.extend({}, defaults, options);
-
-        // PRIVATE properties;
-        var self = this;
-        var carUl = $(self).find("ul");
-        var liWidth = $(self).find("ul li").width();
-        var carPosition = 0;
-        var placeHolderWidth = carUl.parent().width();
-        var visibleItems = Math.floor(placeHolderWidth / liWidth);
-        var nextBtn, prevBtn, curLiWidth, cutOff, clones, adjPos;
 
         // PUBLIC properties
         self.counter = 1;
@@ -98,7 +98,7 @@
         }
 
         function calibrate() {
-            var tolerance, placeHolderWidth, availableSpace, increment;
+            var tolerance, placeHolderWidth, availableSpace, increment, combinedItemWidth;
             tolerance = 2;
             adjPos = 0;
             placeHolderWidth = carUl.parent().width();
@@ -113,7 +113,7 @@
             }
 
             //Check if the combined width of the list self.items plus the increment exceeds the container width, if so: reduce the number of self.items
-            var combinedItemWidth = (liWidth + increment) * visibleItems;
+            combinedItemWidth = (liWidth + increment) * visibleItems;
 
             if (placeHolderWidth + tolerance < combinedItemWidth) {
                 visibleItems -= 1;
