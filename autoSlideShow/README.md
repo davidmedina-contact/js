@@ -29,8 +29,8 @@
 + **preLoadImg:** Use a spinner image in the container background while the slideshow images load. *Default: true [other: false]*
 + **lbNextTxt, lbPrevTxt, lbSlideTxt:** Define the button labels for the Next, Previous and Slideshow in the lookbook option. *Default: next, previous, slideshow*
 
-###credits:
+###Credits:
 
 This plugin uses the [Images Loaded jQuery Plugin](http://desandro.github.com/imagesloaded/ "Images Loaded jQuery Plugin Github") by David DeSandro.
 
-This demo uses the [Bring Flickr Plugin](/javascript/bring-flickr/ "Bring Flickr Plugin") also developed by me.
+This demo uses the [Bring Flickr Plugin](https://github.com/jdmedina/js/tree/master/bringFlickr "Bring Flickr Plugin") also developed by me.
