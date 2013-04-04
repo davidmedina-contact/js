@@ -10,7 +10,7 @@
  * @return {Object}                  jQuery object of the container
  * @example:
  * $('.js_bringFlickr').bringFlickr({
-        ammount : 11,
+        amount : 11,
         rss : 'http://api.flickr.com/services/feeds/photoset.gne?set=72157622891753273&nsid=46213070@N00&lang=en-us',
         size : 'square'
     });
@@ -32,7 +32,7 @@
 
         // setup options by default
         defaults = {
-            ammount : 5, // How many images to bring. Min: 1 - Max: 20
+            amount : 5, // How many images to bring. Min: 1 - Max: 20
             onComplete : null, // Callback function fired upon image load
             rss : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=art&lang=en-us&format=rss_200', // RSS feed URL
             size : 'medium' // Sizes: 'square', 'thumbnail', 'small', 'medium', 'large', 'original'
@@ -86,8 +86,8 @@
                         options.size = newOpts[opts];
                         break;
 
-                    case 'ammount':
-                        options.ammount = newOpts[opts];
+                    case 'amount':
+                        options.amount = newOpts[opts];
                         break;
 
                     case 'rss':
@@ -103,7 +103,7 @@
 
             var randImgArr = [], newImg;
 
-            feed = 'http://pipes.yahoo.com/pipes/pipe.run?_id=9abb5269564e4b17fdb03660bfcf1371&_render=json&ammount=' + options.ammount + '&feed=' + encodeURIComponent((options.rss).replace('&#64;', '%40')) + '&size=' + options.size + '&_callback=?';
+            feed = 'http://pipes.yahoo.com/pipes/pipe.run?_id=9abb5269564e4b17fdb03660bfcf1371&_render=json&ammount=' + options.amount + '&feed=' + encodeURIComponent((options.rss).replace('&#64;', '%40')) + '&size=' + options.size + '&_callback=?';
             li = $(self).find('li');
             img = li.find('img');
             thumb = li.find('a.thumb');
@@ -118,10 +118,10 @@
                     imgURL = (item.description).slice(imgUrlStart + 5, imgUrlEnd + 4);
                     randImgArr[i] = imgURL;
 
-                    newImg = document.createElement('IMG');
-                    newImg.src = imgURL;
-
                     if (li.length !== 1) {
+                        newImg = document.createElement('IMG');
+                        newImg.src = imgURL;
+
                         $(newImg).attr('alt', 'Flickr Image').replaceAll(img.eq(i));
                         thumb.eq(i).attr('title', item.title);
                         if (item.content) {
@@ -142,6 +142,7 @@
 
                 if (li.length === 1) {
                     imgURL = randImgArr[CreateRandomNumber(0, randImgArr.length - 1)];
+                    newImg = document.createElement('IMG');
                     newImg.src = imgURL;
                     $(newImg).attr('alt', 'Flickr Image').replaceAll(img);
                 }
@@ -154,7 +155,6 @@
 
         // Run INIT
         self.initialize();
-
         return this;
     };
 
