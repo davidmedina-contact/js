@@ -1,6 +1,6 @@
 #Auto Carousel
 
-##This carousel scrolls through items in the HTML sideways.
+##This carousel scrolls sideways through items in the HTML.
 
 **Features:**
 
