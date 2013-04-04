@@ -33,15 +33,23 @@
             return this;
         }
 
+        // PRIVATE Properties;
+        var self = this,
+        wrap = $(self).children('div.holder'),
+        items = wrap.find('li'),
+        timer = 0,
+
+        pickers, thumbnails, contrAnchors, playPause, ppTxt, slideCount, prevNext, slide, fadeSec, delaySec,
+
         // setup options by default
-        var defaults = {
+        defaults = {
             delay : 6, // delay between each slide. expressed in seconds
             fadeSpeed : 2, // fade-oout speed. expressed in seconds
             counter : 1, // tell which slide to start on
             autoPlay : true, // Autoplay: true, false
             option : 'pickers', // options: 'pickers', 'thumbnails', 'lookbook'
             crossFade : true, // Crossfade option
-            preLoadImg : true, // Use preloader image in the div holder (as background)
+            preLoadImg : true, // Use loading spinner image in the div holder (as background)
             lbNextTxt : 'next', // Define text for the Next button
             lbPrevTxt : 'previous', // Define text for the Previous button
             lbSlideTxt : 'slideshow', // Define text for the the slideshow name
@@ -49,17 +57,9 @@
         };
 
         options = $.extend({}, defaults, options);
-
-        // PRIVATE Properties;
-        var self = this;
-        var wrap = $(self).children('div.holder');
-        var items = wrap.find('li');
-        var slide = options.counter - 1;
-        var timer = 0;
-        var fadeSec = options.fadeSpeed * 1000;
-        var delaySec = options.delay * 1000;
-
-        var pickers, thumbnails, contrAnchors, playPause, ppTxt, slideCount, prevNext;
+        slide = options.counter - 1;
+        fadeSec = options.fadeSpeed * 1000;
+        delaySec = options.delay * 1000;
 
         // Change options (PUBLIC Method)
         this.changeOptions = function (newOpts, callback) {
@@ -88,7 +88,7 @@
                         pickers = thumbnails = contrAnchors = playPause = undefined;
                         options.autoPlay = false;
                         self.initialize();
-                        
+                        break;
                     }
 
                     if (typeof callback === 'function') {
