@@ -1,7 +1,7 @@
 /**
  * @author JD Medina (www.jdmedina.com)
- * v2.0
- * @date 3/27/2013
+ * v2.1
+ * @date 4/5/2013
  * Last update from: Cold, cold Minneapolis, MN 
  * All Functionality related with the Auto Slideshow 
  * @ jQuery Plug-in
@@ -21,6 +21,8 @@
  * v2.0
  * Complete re-vamp! No more styling on the JS side. The styling will be managed by a CSS file (jquery.autoSlideShow-2.0.css). This means less lines of code, more flexibility and peace of mind. Most of the change slide functionality has been cleaned up. Also, the compact version is gone! You can do this with CSS, come on!
  * This plugin uses the Images Loaded jQuery Plugin by David DeSandro - http://desandro.github.com/imagesloaded/
+ * v2.1
+ * Added the support to pick a slide from any link with the following hash url: #slideX (where X is the slide number)
  */
 
 (function ($) {
@@ -250,6 +252,14 @@
                     options.autoPlay = true;
                 }
                 self.playPauseClick();
+            });
+
+            // Change slide with link hashes (#slideX)
+            $(window).on('hashchange', function () {
+                var slideNum = ((window.location.hash).split('#slide'))[1];
+                options.autoPlay = true;
+                self.playPauseClick();
+                pickSlide(slideNum, true);
             });
 
             return slide;
