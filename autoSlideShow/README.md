@@ -7,6 +7,7 @@
 + **Picker controls:** One picker per slide plus a play/pause button.
 + **Thumbnails:** In addition to the picker controls, thumbnail controls are generated. The thumbnail images are assigned with CSS and the background-image property.
 + **Lookbook:** Next/Previous controls that loop through slides, slide count and a play/pause button.
++ **Pick a slide:** Use links with the following hash structure to pick a slide: #slideX (where X is the slide number).
 
 **Other configuration options:**
 
